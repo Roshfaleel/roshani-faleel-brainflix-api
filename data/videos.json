@@ -294,11 +294,16 @@
     ]
   },
   {
-    "id": "c5405897-1648-49a6-920b-24b2382c2cef",
-    "title": "Lets learn React",
+    "id": "e4733005-2795-4463-af33-e5d3b9549f38",
+    "title": "Lets Learn React",
     "description": "React is a JavaScript-based UI development library. Although React is a library rather than a language, it is widely used in web development. The library first appeared in May 2013 and is now one of the most commonly used frontend libraries for web development.",
     "channel": "Roshani Faleel",
+    "views": "0",
+    "likes": "0",
+    "duration": "00:00",
     "image": "http://localhost:5050/images/Upload-video-preview.jpg",
-    "createdAt": "2024-11-08T20:38:27.679Z"
+    "video": "https://unit-3-project-api-0a5620414506.herokuapp.com/stream",
+    "timestamp": 1731098900456,
+    "comments": []
   }
 ]

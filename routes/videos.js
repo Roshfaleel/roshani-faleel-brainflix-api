@@ -70,8 +70,13 @@ router.post("/", (req, res) => {
     title,
     description,
     channel: "Roshani Faleel", //adding a default channel without adding a extra input feild
+    views: "0", // Default views count
+    likes: "0", // Default likes count
+    duration: "00:00", // Placeholder duration
     image: image || "/images/Upload-video-preview.jpg", // Default image if no image is provided
-    createdAt: new Date().toISOString(),
+    video: "https://unit-3-project-api-0a5620414506.herokuapp.com/stream",
+    timestamp: Date.now(),
+    comments: [],
   };
 
   console.log("New video object created:", newVideo);

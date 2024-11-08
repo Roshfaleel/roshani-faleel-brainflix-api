@@ -32,12 +32,25 @@ function writeVideosFile() {
 }
 router
   .route("/")
-  //GET route to get videos
+  //GET/videos route to get videos
   .get((req, res) => {
     const videos = readVideosFile();
     res.json(videos);
   })
-  //POST route to add video
+
+  //GET/videos/:id
+  .get("/:id", (req, res) => {
+    const { id } = req.params;
+    const videos = readVideosFile();
+    const video = videos.find((video) => video.id === id);
+
+    if (!video) {
+      return res.status(404).json({ error: "Video not found" });
+    }
+
+    res.json(video);
+  })
+  //POST/videos route to add video
   .post((req, res) => {
     const { title, description } = req.body;
 

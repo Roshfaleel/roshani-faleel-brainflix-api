@@ -1,3 +1,4 @@
+import { timeStamp } from "console";
 import express from "express";
 import fs from "fs";
 import path from "path";
@@ -93,6 +94,33 @@ router.post("/", (req, res) => {
   res
     .status(201)
     .json({ message: "Video added successfully", video: newVideo });
+});
+
+router.post("/:id/comments", (req, res) => {
+  const { id } = req.params;
+  const { comment } = req.body;
+
+  const name = "Anonymous"; //as we dont have a input feild for name
+
+  if (!comment) {
+    return res.status(400).json({ error: "Comment is required" });
+  }
+
+  //creating a new comment object
+  const newComment = {
+    id: uuidv4(),
+    name,
+    comment,
+    likes: 0, //default
+    timeStamp: Date.now(),
+  };
+  console.log("New comment object created:", newComment);
+  video.comments.push(newComment);
+
+  writeVideosFile(videos);
+  res
+    .status(201)
+    .json({ message: "Comment added successfully", comment: newComment });
 });
 
 export default router;

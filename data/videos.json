@@ -294,17 +294,11 @@
     ]
   },
   {
-    "id": "569baf31-29c8-495a-bf5d-ade5bfff7fca",
-    "title": "Introduction to BME",
-    "description": "Blah blah",
-    "image": "blob:http://localhost:5173/a529129f-3c7f-4543-a3c6-e9f16f8bdf1c",
-    "createdAt": "2024-11-08T19:58:12.854Z"
-  },
-  {
-    "id": "a2645abe-7493-44eb-b6fb-9b25b269592b",
-    "title": "Lets Learn React",
+    "id": "c5405897-1648-49a6-920b-24b2382c2cef",
+    "title": "Lets learn React",
     "description": "React is a JavaScript-based UI development library. Although React is a library rather than a language, it is widely used in web development. The library first appeared in May 2013 and is now one of the most commonly used frontend libraries for web development.",
+    "channel": "Roshani Faleel",
     "image": "http://localhost:5050/images/Upload-video-preview.jpg",
-    "createdAt": "2024-11-08T20:23:31.837Z"
+    "createdAt": "2024-11-08T20:38:27.679Z"
   }
 ]

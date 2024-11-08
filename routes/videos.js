@@ -69,6 +69,7 @@ router.post("/", (req, res) => {
     id: uuidv4(),
     title,
     description,
+    channel: "Roshani Faleel", //adding a default channel without adding a extra input feild
     image: image || "/images/Upload-video-preview.jpg", // Default image if no image is provided
     createdAt: new Date().toISOString(),
   };

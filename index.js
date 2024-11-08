@@ -1,8 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
-import { v4 as uuidv4 } from "uuid";
 import cors from "cors";
 
 dotenv.config();
@@ -15,8 +12,8 @@ app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// import videosRoutes from "./routes/videos.js";
-// app.use("/videos", videosRoutes);
+import videosRoutes from "./routes/videos.js";
+app.use("/videos", videosRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running...");

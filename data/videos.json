@@ -294,17 +294,17 @@
     ]
   },
   {
-    "id": "8e87cf79-5244-4ef2-bdb5-e17d2c1ac7f2",
-    "title": "Happy Hour",
-    "description": "Happy hour",
-    "thumbnail": "server/public/images/Upload-video-preview.jpg",
-    "createdAt": "2024-11-08T15:35:49.054Z"
+    "id": "569baf31-29c8-495a-bf5d-ade5bfff7fca",
+    "title": "Introduction to BME",
+    "description": "Blah blah",
+    "image": "blob:http://localhost:5173/a529129f-3c7f-4543-a3c6-e9f16f8bdf1c",
+    "createdAt": "2024-11-08T19:58:12.854Z"
   },
   {
-    "id": "f40b6ae6-c3c4-4f96-a301-cfa0de2f8cf4",
-    "title": "hallo",
-    "description": "hallo",
-    "thumbnail": "server/public/images/Upload-video-preview.jpg",
-    "createdAt": "2024-11-08T16:02:11.332Z"
+    "id": "a2645abe-7493-44eb-b6fb-9b25b269592b",
+    "title": "Lets Learn React",
+    "description": "React is a JavaScript-based UI development library. Although React is a library rather than a language, it is widely used in web development. The library first appeared in May 2013 and is now one of the most commonly used frontend libraries for web development.",
+    "image": "http://localhost:5050/images/Upload-video-preview.jpg",
+    "createdAt": "2024-11-08T20:23:31.837Z"
   }
 ]

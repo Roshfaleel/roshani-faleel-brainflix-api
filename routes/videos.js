@@ -157,4 +157,21 @@ router.delete("/:videoId/comments/:commentId", (req, res) => {
   res.status(200).json({ message: "Comment deleted successfully" });
 });
 
+//PUT Adding a like
+router.put("/:videoId/likes", (req, res) => {
+  const { videoId } = req.params;
+  const videos = readVideosFile();
+
+  const video = videos.find((video) => video.id === videoId);
+
+  if (!video) {
+    return res.status(404).json({ error: "Video not found" });
+  }
+
+  video.likes += 1;
+  writeVideosFile(videos);
+
+  res.status(200).json(video);
+});
+
 export default router;

@@ -129,8 +129,14 @@ router.post("/:id/comments", (req, res) => {
 //Deleting comment
 router.delete("/:videoId/comments/:commentId", (req, res) => {
   const { videoId, commentId } = req.params;
+  console.log(
+    "Received request to delete comment:",
+    commentId,
+    "for video:",
+    videoId
+  );
   const videos = readVideosFile();
-  const video = videos.find((video) => video.id === video.Id);
+  const video = videos.find((video) => video.id === videoId);
 
   if (!video) {
     return res.status(404).json({ error: "Video not found." });
@@ -145,7 +151,9 @@ router.delete("/:videoId/comments/:commentId", (req, res) => {
   }
 
   // removing the comment
-  video.comments.splice(commentId, 1);
+  video.comments.splice(commentIndex, 1);
+  console.log("Comment deleted successfully");
+  writeVideosFile(videos);
   res.status(200).json({ message: "Comment deleted successfully" });
 });
 

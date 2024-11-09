@@ -31,6 +31,13 @@
         "comment": "Your channel is my go-to source for staying updated on tech trends. The exploration of AI's future implications is both informative and exciting. Kudos on another excellent video!",
         "likes": 1,
         "timestamp": 1691558262000
+      },
+      {
+        "id": "38fccc46-1ca5-461b-b762-f1a80a69e7d5",
+        "name": "Anonymous",
+        "comment": "Woow",
+        "likes": 0,
+        "timestamp": 1731103257809
       }
     ]
   },
@@ -304,6 +311,14 @@
     "image": "http://localhost:5050/images/Upload-video-preview.jpg",
     "video": "https://unit-3-project-api-0a5620414506.herokuapp.com/stream",
     "timestamp": 1731098900456,
-    "comments": []
+    "comments": [
+      {
+        "id": "5724a5d1-8aa4-40cf-a648-fa11ca891d77",
+        "name": "Anonymous",
+        "comment": "This is awesome!",
+        "likes": 0,
+        "timestamp": 1731103688445
+      }
+    ]
   }
 ]

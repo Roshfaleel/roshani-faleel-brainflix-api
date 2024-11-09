@@ -96,11 +96,14 @@ router.post("/", (req, res) => {
     .json({ message: "Video added successfully", video: newVideo });
 });
 
+//Adding new comments
 router.post("/:id/comments", (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
 
   const name = "Anonymous"; //as we dont have a input feild for name
+  const videos = readVideosFile();
+  const video = videos.find((video) => video.id === id);
 
   if (!comment) {
     return res.status(400).json({ error: "Comment is required" });
@@ -112,7 +115,7 @@ router.post("/:id/comments", (req, res) => {
     name,
     comment,
     likes: 0, //default
-    timeStamp: Date.now(),
+    timestamp: Date.now(),
   };
   console.log("New comment object created:", newComment);
   video.comments.push(newComment);
@@ -121,6 +124,29 @@ router.post("/:id/comments", (req, res) => {
   res
     .status(201)
     .json({ message: "Comment added successfully", comment: newComment });
+});
+
+//Deleting comment
+router.delete("/:videoId/comments/:commentId", (req, res) => {
+  const { videoId, commentId } = req.params;
+  const videos = readVideosFile();
+  const video = videos.find((video) => video.id === video.Id);
+
+  if (!video) {
+    return res.status(404).json({ error: "Video not found." });
+  }
+
+  //finding and removing comments by comment ID
+  const commentIndex = video.comments.findIndex(
+    (comment) => comment.id === commentId
+  );
+  if (commentIndex === -1) {
+    return res.status(404).json({ error: "comment not found" });
+  }
+
+  // removing the comment
+  video.comments.splice(commentId, 1);
+  res.status(200).json({ message: "Comment deleted successfully" });
 });
 
 export default router;

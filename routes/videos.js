@@ -157,6 +157,11 @@ router.delete("/:videoId/comments/:commentId", (req, res) => {
   res.status(200).json({ message: "Comment deleted successfully" });
 });
 
+//to use in likes
+const formatNumberWithCommas = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 //PUT Adding a like
 router.put("/:videoId/likes", (req, res) => {
   const { videoId } = req.params;
@@ -168,10 +173,13 @@ router.put("/:videoId/likes", (req, res) => {
     return res.status(404).json({ error: "Video not found" });
   }
 
-  video.likes += 1;
+  video.likes = parseInt(video.likes.replace(/,/g, ""), 10) + 1;
+  video.likes = formatNumberWithCommas(video.likes);
   writeVideosFile(videos);
 
-  res.status(200).json(video);
+  res
+    .status(200)
+    .json({ message: "Likes incremented successfully", likes: video.likes });
 });
 
 export default router;

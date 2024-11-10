@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import express from "express";
 import fs from "fs";
 import path from "path";
@@ -7,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const router = express.Router();
 
-// Set up paths using fileURLToPath for ES modules
+// Set up paths
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -34,13 +33,13 @@ function writeVideosFile(data) {
   }
 }
 
-// GET /videos route to get all videos
+// *** GET "/videos" route to get all videos ***
 router.get("/", (req, res) => {
   const videos = readVideosFile();
   res.json(videos);
 });
 
-// GET /videos/:id route to get a specific video by ID
+// *** GET "/videos/:id" route to get a specific video by ID ***
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   const videos = readVideosFile();
@@ -52,7 +51,7 @@ router.get("/:id", (req, res) => {
   res.json(video);
 });
 
-// POST /videos route to add a new video
+// *** POST "/videos" route to add a new video ***
 router.post("/", (req, res) => {
   const { title, description, image } = req.body;
   console.log("Received POST request with data:", req.body);
@@ -96,7 +95,7 @@ router.post("/", (req, res) => {
     .json({ message: "Video added successfully", video: newVideo });
 });
 
-//Adding new comments
+// *** POST "videos/videoId/comments" route to add new comments ***
 router.post("/:id/comments", (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
@@ -126,7 +125,7 @@ router.post("/:id/comments", (req, res) => {
     .json({ message: "Comment added successfully", comment: newComment });
 });
 
-//Deleting comment
+// *** DELETE "videos/videoId/comments/:commentId" route to delete the comments ***
 router.delete("/:videoId/comments/:commentId", (req, res) => {
   const { videoId, commentId } = req.params;
   console.log(
@@ -162,7 +161,7 @@ const formatNumberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-//PUT Adding a like
+// *** PUT "/:videoId/likes" to Add a like ***
 router.put("/:videoId/likes", (req, res) => {
   const { videoId } = req.params;
   const videos = readVideosFile();
